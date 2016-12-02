@@ -1,0 +1,12 @@
+[Unit]
+Description=Apache Tomcat 8 Web Application Container
+After=network.target
+[Service]
+Type=forking
+PIDFile=/var/run/tomcat.pid
+ExecStart=/u01/modules/tomcat8.5/bin/daemon.sh  start
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/u01/modules/tomcat8.5/bin/daemon.sh  stop
+PrivateTmp=true
+[Install]
+WantedBy=multi-user.target
