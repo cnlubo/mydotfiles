@@ -132,7 +132,8 @@ Plug 'altercation/vim-colors-solarized'
 " 主题 molokai
 Plug 'tomasr/molokai'
 " 主题 darkburn
-Plugin 'darkburn
+Plug 'darkburn'
+
 
 
 " nav
