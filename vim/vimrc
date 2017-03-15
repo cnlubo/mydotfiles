@@ -719,12 +719,9 @@ endif
 set t_Co=256
 set background=dark
 
-colorscheme darkburn
-"colorscheme solarized
+"colorscheme darkburn
+colorscheme solarized
 "colorscheme molokai
-"colorscheme desert
-"colorscheme  Monokai-Refined
-"colorscheme desert256
 
 "设置标记一列的背景颜色和数字一行颜色一致
 hi! link SignColumn   LineNr
