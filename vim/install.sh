@@ -77,7 +77,8 @@ echo "Step3: update/install plugins using Vim-plug"
 system_shell=$SHELL
 export SHELL="/bin/sh"
 if $FOR_VIM; then
-
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     vim -u $HOME/.vimrc.bundles +PlugInstall! +PlugClean! +qall
 else
     nvim -u $HOME/.vimrc.bundles +PlugInstall! +PlugClean! +qall
