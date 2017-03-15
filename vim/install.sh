@@ -60,39 +60,39 @@ if $FOR_NEOVIM; then
     for i in $HOME/.config/nvim/init.vim $HOME/.config/nvim; do [ -L $i ] && unlink $i ; done
 fi
 
-echo "Step2: setting up symlinks"
-if $FOR_VIM; then
-    lnif $CURRENT_DIR/vimrc $HOME/.vimrc
-    lnif $CURRENT_DIR/vimrc.bundles $HOME/.vimrc.bundles
-    lnif "$CURRENT_DIR/" "$HOME/.vim"
-fi
-if $FOR_NEOVIM; then
-    lnif "$CURRENT_DIR/" "$HOME/.config/nvim"
-    lnif $CURRENT_DIR/vimrc $CURRENT_DIR/init.vim
-fi
-
-echo "Step3: update/install plugins using Vim-plug"
-system_shell=$SHELL
-export SHELL="/bin/sh"
-if $FOR_VIM; then
-    vim -u $HOME/.vimrc.bundles +PlugInstall! +PlugClean! +qall
-else
-    nvim -u $HOME/.vimrc.bundles +PlugInstall! +PlugClean! +qall
-fi
-export SHELL=$system_shell
-
-
-echo "Step4: compile YouCompleteMe"
-echo "It will take a long time, just be patient!"
-echo "If error,you need to compile it yourself"
-echo "cd $CURRENT_DIR/bundle/YouCompleteMe/ && python install.py --clang-completer"
-cd $CURRENT_DIR/bundle/YouCompleteMe/
-git submodule update --init --recursive
-if [ `which clang` ]   # check system clang
-then
-    python install.py --clang-completer --system-libclang   # use system clang
-else
-    python install.py --clang-completer
-fi
+#echo "Step2: setting up symlinks"
+#if $FOR_VIM; then
+#    lnif $CURRENT_DIR/vimrc $HOME/.vimrc
+#    lnif $CURRENT_DIR/vimrc.bundles $HOME/.vimrc.bundles
+#    lnif "$CURRENT_DIR/" "$HOME/.vim"
+#fi
+#if $FOR_NEOVIM; then
+#    lnif "$CURRENT_DIR/" "$HOME/.config/nvim"
+#    lnif $CURRENT_DIR/vimrc $CURRENT_DIR/init.vim
+#fi
+#
+#echo "Step3: update/install plugins using Vim-plug"
+#system_shell=$SHELL
+#export SHELL="/bin/sh"
+#if $FOR_VIM; then
+#    vim -u $HOME/.vimrc.bundles +PlugInstall! +PlugClean! +qall
+#else
+#    nvim -u $HOME/.vimrc.bundles +PlugInstall! +PlugClean! +qall
+#fi
+#export SHELL=$system_shell
+#
+#
+#echo "Step4: compile YouCompleteMe"
+#echo "It will take a long time, just be patient!"
+#echo "If error,you need to compile it yourself"
+#echo "cd $CURRENT_DIR/bundle/YouCompleteMe/ && python install.py --clang-completer"
+#cd $CURRENT_DIR/bundle/YouCompleteMe/
+#git submodule update --init --recursive
+#if [ `which clang` ]   # check system clang
+#then
+#    python install.py --clang-completer --system-libclang   # use system clang
+#else
+#    python install.py --clang-completer
+#fi
 
 echo "Install Done!"
