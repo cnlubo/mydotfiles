@@ -718,11 +718,7 @@ endif
 " theme主题
 set t_Co=256
 let g:solarized_termcolors=16
-set background=dark
-
 "colorscheme darkburn
-"colorscheme solarized
-"colorscheme molokai
 colorscheme molokai
 set background=dark
 "colorscheme solarized
