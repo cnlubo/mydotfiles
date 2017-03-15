@@ -71,6 +71,7 @@ if $FOR_NEOVIM; then
     lnif $CURRENT_DIR/vimrc $CURRENT_DIR/init.vim
 fi
 
+
 echo "Step3: update/install plugins using Vim-plug"
 system_shell=$SHELL
 export SHELL="/bin/sh"
