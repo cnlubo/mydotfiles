@@ -60,17 +60,17 @@ if $FOR_NEOVIM; then
     for i in $HOME/.config/nvim/init.vim $HOME/.config/nvim; do [ -L $i ] && unlink $i ; done
 fi
 
-#echo "Step2: setting up symlinks"
-#if $FOR_VIM; then
-#    lnif $CURRENT_DIR/vimrc $HOME/.vimrc
-#    lnif $CURRENT_DIR/vimrc.bundles $HOME/.vimrc.bundles
-#    lnif "$CURRENT_DIR/" "$HOME/.vim"
-#fi
-#if $FOR_NEOVIM; then
-#    lnif "$CURRENT_DIR/" "$HOME/.config/nvim"
-#    lnif $CURRENT_DIR/vimrc $CURRENT_DIR/init.vim
-#fi
-#
+echo "Step2: setting up symlinks"
+if $FOR_VIM; then
+    lnif $CURRENT_DIR/vimrc $HOME/.vimrc
+    lnif $CURRENT_DIR/vimrc.bundles $HOME/.vimrc.bundles
+    lnif "$CURRENT_DIR/" "$HOME/.vim"
+fi
+if $FOR_NEOVIM; then
+    lnif "$CURRENT_DIR/" "$HOME/.config/nvim"
+    lnif $CURRENT_DIR/vimrc $CURRENT_DIR/init.vim
+fi
+
 #echo "Step3: update/install plugins using Vim-plug"
 #system_shell=$SHELL
 #export SHELL="/bin/sh"
