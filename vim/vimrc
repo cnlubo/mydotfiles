@@ -1,56 +1,43 @@
 scriptencoding utf-8
-" ============================================================================
+" =============================================================================
 " Author: cnlubo
 " Version: v1.0
 " Update Time: 2017-03-03
-" ============================================================================
+" ==============================================================================
 " Initial Plugin 加载插件
-"==========================================
+"===============================================================================
 " 修改leader键
 let mapleader = ','
 let g:mapleader = ','
-" 开启语法高亮
-syntax enable
-
+syntax enable                               " 开启语法高亮
 " install Vundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
     source ~/.vimrc.bundles
 endif
 
-"==========================================
+"===============================================================================
 " General Settings 基础设置
-"==========================================
-" history存储容量
-set history=2000
-" 开启检测文件类型、自动缩进，允许插件
-filetype plugin indent on
-" 文件修改之后自动载入。
-set autoread
-" 启动的时候不显示那个援助索马里儿童的提示
-set shortmess=atI
+"===============================================================================
+set history=2000                                  " history存储容量
+filetype plugin indent on                         " 开启检测文件类型、自动缩进，允许插件
+set autoread                                      " 文件修改之后自动载入。
+set shortmess=atI                                 " 启动的时候不显示那个援助索马里儿童的提示
 
 " 备份,到另一个位置. 防止误删, 目前是取消备份
 "set backup
 "set backupext=.bak
 "set backupdir=/tmp/vimbk/
 
-" 取消备份。视情况自己改
-set nobackup
-" 关闭交换文件
-set noswapfile
-
-" 自动切换当前目录为当前文件所在的目录"
-set autochdir
-
+set nobackup                                      " 取消备份。视情况自己改
+set noswapfile                                    " 关闭交换文件
+set autochdir                                     " 自动切换当前目录为当前文件所在的目录"
 
 set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
 
 
-set mouse-=a             " 鼠标暂不启用, 键盘党....
-" 启用鼠标
-" set mouse=a
-" Hide the mouse cursor while typing
-" set mousehide
+set mouse-=a                                      " 不启用鼠标
+" set mouse=a                                     " 启用鼠标
+" set mousehide                                   " Hide the mouse cursor while typing
 
 " 修复ctrl+m 多光标操作选择的bug，但是改变了ctrl+v进行字符选中时将包含光标下的字符
 "set selection=exclusive
@@ -64,7 +51,7 @@ set noerrorbells         " don't beep
 set t_vb=
 set tm=500
 
-" Remember info about open buffers on close"
+" Remember info about open buffers on close
 set viminfo^=%
 
 " For regular expressions turn magic on
@@ -512,11 +499,6 @@ inoremap kj <Esc>
 nnoremap <C-e> 2<C-e>
 nnoremap <C-y> 2<C-y>
 
-" Jump to start and end of line using the home row keys
-" 增强tab操作, 导致这个会有问题, 考虑换键
-"nmap t o<ESC>k
-"nmap T O<ESC>j
-
 
 " Quickly close the current window
 nnoremap <leader>q :q<CR>
@@ -550,17 +532,6 @@ autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown set filetype=markdown.mkd
 autocmd BufRead,BufNewFile *.part set filetype=html
 " disable showmatch when use > in php
 au BufWinEnter *.php set mps-=<:>
-
-
-" 保存python文件时删除多余空格
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
-" func! DeleteTrailingWS()
-"    exe "normal mz"
-"    %s/\s\+$//ge
-"    exe "normal `z"
-" endfunc
-
-"autocmd BufWrite *.py :call DeleteTrailingWS()
 
 " 保存python文件时删除多余空格
 fun! <SID>StripTrailingWhitespaces()
@@ -729,7 +700,7 @@ hi! link SignColumn   LineNr
 hi! link ShowMarksHLl DiffAdd
 hi! link ShowMarksHLu DiffChange
 
-"" for error highlight，防止错误整行标红导致看不清
+" for error highlight，防止错误整行标红导致看不清
 highlight clear SpellBad
 highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
 highlight clear SpellCap

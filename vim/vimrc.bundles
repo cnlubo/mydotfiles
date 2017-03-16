@@ -1,8 +1,6 @@
 "==========================================
-" bundle 插件管理和配置项
+" 插件管理和配置项
 "==========================================
-
-"------------------------------------------- begin of configs --------------------------------------------
 
 "################### 包依赖 #####################
 "package dependence:  ctags
@@ -10,6 +8,7 @@
 "
 "非兼容vi模式。去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
 set nocompatible
+
 filetype off " required! turn off
 
 "################### 插件管理 ###################
@@ -25,12 +24,16 @@ endif
 " ----------------------------------------------------------------------------
 call plug#begin('~/.vim/bundle')
 " 移动光标到插件名上, 使用'#'快速跳转到每个插件的配置处
+" 安装插件"
+
 " syntastic
+
 Plug 'scrooloose/syntastic'
 
 " Group dependencies, vim-snippets depends on ultisnips
 " 代码片段快速插入 (snippets中,是代码片段资源,需要学习)
 " Snippets are separated from the engine. Add this if you want them:
+
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " auto complete
@@ -38,8 +41,10 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " 迄今为止用到的最好的自动VIM自动补全插件
 " 重启 :YcmRestartServer
 Plug 'Valloric/YouCompleteMe'
+
 " 自动补全单引号，双引号等
 Plug 'Raimondi/delimitMate'
+
 " 自动补全html/xml标签
 Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
 
@@ -54,6 +59,7 @@ Plug 'tpope/vim-repeat' | Plug 'tpope/vim-surround'
 " trailingwhitespace
 " 快速去行尾空格 [, + <Space>]
 Plug 'bronson/vim-trailing-whitespace'
+
 " easyalign
 " 快速赋值语句对齐
 Plug 'junegunn/vim-easy-align'
@@ -68,6 +74,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'unblevable/quick-scope'
 
 Plug 'vim-scripts/matchit.zip'
+
 " signature
 " 显示marks - 方便自己进行标记和跳转
 " m[a-zA-Z] add mark
@@ -125,12 +132,14 @@ Plug 'vim-airline/vim-airline-themes'
 " rainbow_parentheses
 " 括号显示增强
 Plug 'kien/rainbow_parentheses.vim'
+
 " 主题 solarized
 " solarized
 Plug 'altercation/vim-colors-solarized'
 " molokai
 " 主题 molokai
 Plug 'tomasr/molokai'
+
 " 主题 darkburn
 Plug 'darkburn'
 
