@@ -2,3 +2,4 @@
 .idea/
 /vim/bundle/
 /vim/autoload/
+/vim/filetype.vim
