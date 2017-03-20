@@ -3,10 +3,12 @@
 "==========================================
 
 "################### 包依赖 #####################
-"package dependence:  ctags
-"python dependence:  pep8, pyflake
+" package dependence:  ctags
+" mac brew instal ctags
+" 安装后 .zshrc 需要增加export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+" python dependence:  pep8, pyflake
 "
-"非兼容vi模式。去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
+" 非兼容vi模式。去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
 set nocompatible
 
 filetype off " required! turn off
@@ -178,22 +180,26 @@ if count(g:bundle_groups, 'tmux')
 endif
 
 if count(g:bundle_groups, 'markdown')
-    Plug 'plasticboy/vim-markdown', {'for': 'md'}
-    " https://github.com/suan/vim-instant-markdown
+" Markdown 语法高亮插件
+ Plug 'godlygeek/tabular'
+ Plug 'plasticboy/vim-markdown'
+
+" Markdown realtime preview
+" https://github.com/suan/vim-instant-markdown
     " npm -g install instant-markdown-d
-    " Plug 'suan/vim-instant-markdown'
-    " let g:instant_markdown_slow = 1
-    " let g:instant_markdown_autostart = 0
-    " map <F12> :InstantMarkdownPreview<CR>
+" Plug 'suan/vim-instant-markdown'
+" let g:instant_markdown_slow = 1
+" let g:instant_markdown_autostart = 0
+" map <F12> :InstantMarkdownPreview<CR>
 endif
 
 if count(g:bundle_groups, 'golang')
     " 1. vim a.go
     " 2. :GoInstallBinaries
+    " 如果自动下载失败，手工下载后放到GOPATH的src目录，go install安装
     " vimgo  https://github.com/fatih/vim-go
     Plug 'fatih/vim-go', {'for': 'go'}
 endif
-
 
 if count(g:bundle_groups, 'python')
     " for python.vim syntax highlight
@@ -201,7 +207,7 @@ if count(g:bundle_groups, 'python')
     Plug 'hdima/python-syntax'
     Plug 'hynek/vim-python-pep8-indent'
     Plug 'Glench/Vim-Jinja2-Syntax'
-
+    "智能对导入包进行排序
     " isort  https://github.com/timothycrosley/isort#readme + https://github.com/fisadev/vim-isort#installation
     " pip install isort
     Plug 'fisadev/vim-isort'
@@ -265,12 +271,14 @@ call plug#end()
     let g:syntastic_enable_highlighting=1
 
     " checkers
-    " 最轻量
+    " 最轻量级
     " let g:syntastic_python_checkers=['pyflakes'] " 使用pyflakes
-    " 中等
+    " 中等级
     " error code: http://pep8.readthedocs.org/en/latest/intro.html#error-codes
+
     let g:syntastic_python_checkers=['pyflakes', 'pep8'] " 使用pyflakes,速度比pylint快
     let g:syntastic_python_pep8_args='--ignore=E501,E225,E124,E712'
+
     " 重量级, 但是足够强大, 定制完成后相当个性化
     " pylint codes: http://pylint-messages.wikidot.com/all-codes
     " let g:syntastic_python_checkers=['pyflakes', 'pylint'] " 使用pyflakes,速度比pylint快
@@ -764,11 +772,11 @@ call plug#end()
     let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'java'] }
 " }}}
 
- markdown {{{
+ " markdown {{{
     let g:vim_markdown_folding_disabled=1
- }}}
+ " }}}
 
- json {{{
+ " json {{{
     let g:vim_json_syntax_conceal = 0
 " }}}
 
