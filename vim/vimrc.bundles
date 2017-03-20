@@ -15,9 +15,10 @@ filetype off " required! turn off
 
 "################### 插件管理 ###################
 " inspired by spf13, 自定义需要的插件集合
+
 if !exists('g:bundle_groups')
     " let g:bundle_groups=['python','markdown','php','golang', 'ruby', 'html', 'tmux', 'beta','json']
-    let g:bundle_groups=['python','markdown','php, 'html', 'tmux','json']
+    let g:bundle_groups=['python','markdown','php', 'html', 'tmux','json']
 endif
 
 " ----------------------------------------------------------------------------
