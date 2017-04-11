@@ -19,12 +19,15 @@
 
 # Heap size defaults to 256m min, 1g max
 # Set ES_HEAP_SIZE to 50% of available RAM, but no more than 31g
+# JVM参数的 -Xms and -Xmx 设置
 ES_HEAP_SIZE=512m
 
 # Heap new generation
+# JVM参数的-Xmn设置
 #ES_HEAP_NEWSIZE=
 
 # Maximum direct memory
+# JVM的-XX:MaxDirectMemorySize设置
 #ES_DIRECT_SIZE=
 
 # Additional Java OPTS
