@@ -1,0 +1,14 @@
+[Unit]
+Description=Graylog server daemon
+BindTo=network.target
+#Requires=elasticsearch.service mongodb.service
+
+[Service]
+Type=simple
+User=root
+PIDFile=/tmp/graylog.pid
+ExecStart=/usr/bin/java -Djava.library.path=/u01/modules/graylog-2.2.3/lib/sigar -Dlog4j.configurationFile=file:///etc/graylog/server/log4j2.xml -Xms1g -Xmx1g -XX:NewRatio=1 -server -XX:+ResizeTLAB -XX:+UseConcMarkSweepGC -XX:+CMSConcurrentMTEnabled -XX:+CMSClassUnloadingEnabled -XX:+UseParNewGC -XX:-OmitStackTraceInFastThrow  -jar /u01/modules/graylog-2.2.3/graylog.jar server -f /etc/graylog/server/server.conf -p /tmp/graylog.pid
+
+[Install]
+WantedBy=multi-user.target
+
