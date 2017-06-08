@@ -153,7 +153,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 
 " 主题 darkburn
-Plug 'darkburn'
+Plug 'vim-scripts/darkburn'
 
 
 
