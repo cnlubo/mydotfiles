@@ -1,0 +1,43 @@
+# Default Homebrew Mariadb server config
+[mysqld]
+# Only allow connections from localhost
+bind-address                        = 127.0.0.1
+character_set_server                = UTF8
+lower_case_table_names              = 1
+
+#####################DIR##############
+basedir                             = /usr/local/opt/mariadb
+pid_file                            = /usr/local/var/mariadb/mysql3306.pid
+socket                              = /usr/local/var/mariadb/mysql3306.sock
+datadir                             = /usr/local/var/mariadb/
+innodb_data_home_dir                = /usr/local/var/mariadb/
+innodb_log_group_home_dir           = /usr/local/var/mariadb/log
+log_bin                             = /usr/local/var/mariadb/log/mysql_bin
+log_bin_index                       = /usr/local/var/mariadb/log/mysql_bin.index
+relay_log_index                     = /usr/local/var/mariadb/log/relay_log.index
+relay_log                           = /usr/local/var/mariadb/log/relay_bin
+log_error                           = /usr/local/var/mariadb/log/alert.log
+slow_query_log_file                 = /usr/local/var/mariadb/log/slow.log
+general_log_file                    = /usr/local/var/mariadb/log/general.log
+################ SAFETY############
+skip_name_resolve
+sysdate_is_now                      = 1
+innodb_strict_mode                  = 1
+skip_ssl
+safe_user_create                    = 1
+################BINARY LOGGING  ##########
+expire_logs_days                    = 7
+sync_binlog                         = 1
+binlog_format                       = row
+
+######INNODB##############################
+
+#innodb_buffer_pool_size             = 1G
+#innodb_file_format                  = Barracuda
+#innodb_file_format_max              = Barracuda
+################# LOGGING#######################
+slow_query_log                         = 1
+general_log                            = 0
+long_query_time                        = 3
+min_examined_row_limit                 = 100
+transaction_isolation           = READ-COMMITTED
