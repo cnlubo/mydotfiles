@@ -21,8 +21,8 @@ OOMScoreAdjust=-999
 # Ideally, the timeout for starting PostgreSQL server should be handled
 # more nicely by pg_ctl in ExecStart,so keep its timeout smaller than this value.
 TimeoutSec=300
-## Disable OOM kill on the postmaster
-#OOMScoreAdjust=-1000
+# Disable OOM kill on the postmaster
+# OOMScoreAdjust=-1000
 # ... but allow it still to be effective for child processes
 # (note that these settings are ignored by Postgres releases before 9.5)
 #Environment=PG_OOM_ADJUST_FILE=/proc/self/oom_score_adj
