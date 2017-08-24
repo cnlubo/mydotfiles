@@ -1,0 +1,19 @@
+[Unit]
+Description=redis-server on 6379
+After=syslog.target
+After=network.target
+[Service]
+Type=forking
+PIDFile=/u01/modules/redis/run/redis_6379.pid
+ExecStart=/u01/modules/redis/bin/redis-server /u01/modules/redis/etc/redis_6379.conf
+ExecStop=/u01/modules/redis/bin/redis-cli shutdown
+User=redis
+Group=redis
+LimitCORE=infinity
+LimitNOFILE=65535
+LimitNPROC=65535
+#Place temp files in a secure directory, not /tmp
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
